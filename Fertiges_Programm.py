@@ -1,10 +1,9 @@
 # Tkinter wird für das GUI importiert - Einfachere Funktionen, um ein GUI zu programmieren
 # Bei RSA_Verschluesslung wird der Code für die Umformung von Buchstaben zu Bytes importiert - Um auch Buchstaben zu Verschlüsseln
-
+import math
 from tkinter import *
 import tkinter as tk
 from Buchstaben_zu_bytes import convert_to_num, convert_to_text
-from math import gcd
 from math import *
 import random
 from hashlib import blake2b
@@ -256,7 +255,7 @@ def open1():
 
     def CopyPaste_message():
         entry_seite_3.delete(first=0, last=50)
-        entry_seite_3.insert(tk.INSERT, verschlüsselte_nachricht)
+        entry_seite_3.insert(tk.INSERT, verschluesselte_nachricht)
 
     button_for_random_prime1 = tk.Button(frame_for_random_prime1, text="Auto", bg="#00001a", fg="white",
                                          font=("Alegra", 30), bd=1,
@@ -919,7 +918,7 @@ def change_Geldbetrag():
 
 
 def change_Geldbetrag1():
-    Kosch_Coin.chain[int(input_Block.get())].transaction = input_new_Geldbetrag.get()
+    Kosch_Coin.chain[int(input_Block.get())].geldbetrag = input_new_Geldbetrag.get()
     recalculate_hash()
 
 
@@ -956,7 +955,7 @@ def recalculate_hash():
 
 
 def recalculate_hash_yes():
-    Kosch_Coin.chain[int(input_Block.get())].hash = Kosch_Coin.chain[int(input_Block.get())].calcHash()
+    Kosch_Coin.chain[int(input_Block.get())].hash = Kosch_Coin.chain[int(input_Block.get())].calculateHash()
     open3()
 
 
